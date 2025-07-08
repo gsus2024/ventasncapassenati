@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <select name="cbxDia" id="cbxDia">
+        <option value="0">Seleccione día</option>
+        <option value="1">Lunes</option>
+        <option value="2">Martes</option>
+        <option value="3">Miércoles</option>
+        <option value="4">Jueves</option>
+        <option value="5">Viernes</option>
+    </select>
+    <hr>
+    <table id="res" bgcolor="yellow" width="30%">
+        <tr>
+            <th>
+                Curso
+            </th>
+            <th>
+                Tipo Sesión
+            </th>
+        </tr>
+        <!--AQUÍ RECIBIMOS LA RESPUESTA DE NUESTRO ARCHIVO demoxajax1.php-->
+    </table>
+</body>
+</html>
+<script>
+    $('#cbxDia').change(function(){
+        dia=$('#cbxDia').val();
+        param={'dia':dia};
+        $.ajax({
+            url:'demoajax1.php',
+            data: param,
+            type: 'get',
+            success: function(res){
+                $('#res').html(res);
+            }
+        });
+    });
+</script>

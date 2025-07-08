@@ -3,5 +3,6 @@
     interface ICategoria{
         public function guardar($categoria);
         public function cargar();
+        public function cargarPorFamilia($idfam);
     }
 ?>
